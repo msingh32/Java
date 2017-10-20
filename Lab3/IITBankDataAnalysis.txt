@@ -1,0 +1,33 @@
+Current Date= 2017/10/293 15:10:99
+ Programmed by Mili Singh
+	-----Welcome to  Data Analysis Report of IIT Bank------
+
+
+Females with Mortgage and Savings Acct in Inner City Location :31
+Females with Mortgage and Savings Acct in Rural Location : 9
+Females with Mortgage and Savings Acct in Suburban Location :4
+Females with Mortgage and Savings Acct in Town Location :27
+====================================================
+Males with 1 Child and a Car in Inner City Location :15
+Males with 1 Child and a Car in Rural Location :9
+Males with 1 Child and a Car in Suburban Location :3
+Males with 1 Child and a Car in Town Location :7
+====================================================
+Average Income In Inner city Location is : $27752.87
+Average Income In Rural Location is : $30027.61
+Average Income In Suburban Location is: $28656.36
+Average Income In Town Location is: $26802.19
+
+====================================================
+Maximum Income in Inner city location is : $ 266222.8
+Maximum Income in Rural location is: $ 57398.1
+Maximum Income in Suburban location is: $63130.1
+Maximum Income in Town location is: $ 59803.9
+
+
+====================================================
+
+Minimum Income in Inner city location is : $6294.21
+Minimum Income in Rural location is: $8639.24
+Minimum Income in Suburban location is: $8143.75
+Minimum Income in Town location is: $5014.21
