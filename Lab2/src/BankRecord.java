@@ -137,8 +137,8 @@ public void readData()
 		
 	try
 	{	BufferedReader br=new BufferedReader(new FileReader("bank-Detail.csv"));
-		String line=br.readLine();
-		int i=0;
+		String line=null;
+		int i=1;
 		while((line=br.readLine())!=null)
 		{
 			array.add(Arrays.asList(line.split(",")));
@@ -157,7 +157,7 @@ public void readData()
 	 
 	public void processData()
 	{
-		int i=0;;
+		int i=0;
 	for(List<String> dbData:array)
 	{
 	rObj[i]=new BankRecord();
@@ -189,7 +189,7 @@ i++;
 		System.out.println("\n");
 		System.out.println("\t\t\t-----Welcome to IIT Bank Report------\n");
 		System.out.println("\tID\t\tAGE\t  SEX\t     REGION\t   INCOME\tMORTAGE");
-		for(int j=0;j<25;j++)
+		for(int j=0;j<26;j++)
 		{
 			System.out.format("\t%5s,%10s,%10s,\t%10s,\t%10s%10s\n",rObj[j].getId(),rObj[j].getAge(),rObj[j].getSex(),rObj[j].getRegion(),rObj[j].getIncome(),rObj[j].getMortage());
 		}
