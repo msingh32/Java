@@ -1,53 +1,66 @@
+/* Name: Ruchika Akhand
+ * November 8th, 2017
+ * BankRecords.java File
+ * Lab 4
+ */
+
 import java.io.*;
 import java.util.*;
 import java.text.*;
 
 //BankRecord using the client abstract method and generate the client records from .csv file;
-
-public class BankRecord extends client
-{
+public class BankRecord extends client {
 	
-	static BankRecord[] rObj=new BankRecord[600];
+	//creating bankrecord object here 
+	static BankRecord[] brobj=new BankRecord[600];
 	static List<List<String>>array=new ArrayList<List<String>>();
 	
-	//create instances for variable
-	
-	private String id,region,sex,married,save_acct,current_act,mortage,pep,car,children;
-	private double income;
-	private int age;
+	//declaring variables
+	private String Id; 
+	private String Region; 
+	private String sex;
+	private String Married;
+	private String Saveact; 
+	private String Currentact;
+	private String Mortgage;
+	private String Pep;
+	private String Car;
+	private String Children;
+	private double Income;
+	private int Age;
 	
 	//Getter and Setter for each instances
 	
 	public void setCar(String car)
 	{
-		this.car=car;
+		this.Car=car;
 	}
 	
 	public String getCar()
 	{
-		return car;
+		return Car;
 	}
 	public void setId(String id)
 	{
-		this.id=id;
+		this.Id=id;
 	}
 	
 	public String getId()
 	{
-		return id;
+		return Id;
 	}
 	public void setRegion(String region)
 	{
-		this.region=region;
+		this.Region=region;
 	}
 	
 	public String getRegion()
 	{
-		return region;
+		return Region;
 	}
 	public void setSex(String sex)
 	{
-		this.sex=sex;
+		this.sex = sex;
 	}
 	
 	public String getSex()
@@ -56,93 +69,96 @@ public class BankRecord extends client
 	}
 		public void setMarried(String married)
 	{
-		this.married=married;
+		this.Married=married;
 	}
 	
 	public String getMarried()
 	{
-		return married;
+		return Married;
 	}
 		public void setSave_acct(String save_acct)
 	{
-		this.save_acct=save_acct;
+		this.Saveact=save_acct;
 	}
 	
 	public String getSave_acct()
 	{
-		return save_acct;
+		return Saveact;
 	}
 		public void setCurrent_act(String current_act)
 	{
-		this.current_act=current_act;
+		this.Currentact=current_act;
 	}
 	
 	public String getCurrent_act()
 	{
-		return current_act;
+		return Currentact;
 	}
-		public void setMortage(String mortage)
+		public void setMortgage(String mortgage)
 	{
-		this.mortage=mortage;
+		this.Mortgage=mortgage;
 	}
 	
-	public String getMortage()
+	public String getMortgage()
 	{
-		return mortage;
+		return Mortgage;
 	}
 		public void setPep(String pep)
 	{
-		this.pep=pep;
+		this.Pep=pep;
 	}
 	
 	public String getPep()
 	{
-		return pep;
+		return Pep;
 	}
 	public void setAge(int age)
 	{
-		this.age=age;
+		this.Age = age;
 	}
 	
 	public int getAge()
 	{
-		return age;
+		return Age;
 	}
 	
 	public void setChildren(String children)
 	{
-		this.children=children;
+		this.Children = children;
 	}
 	
 	public String getChildren()
 	{
-		return children;
+		return Children;
 	}
 		public void setIncome(double income)
 	{
-		this.income=income;
+		this.Income = income;
 	}
 	
 	public double getIncome()
 	{
-		return income;
+		return Income;
 	}
 	
-	/*readData() method reading all the record data from the Bank-detail.csv file in your path 
-	into an array*/
+	
+	//method reads in the data from the csv file into an arraylist 
+	public void readData()
 
-public void readData()
-      
 	{
 		String line="";
 		//try and catch included while reading a file
 		
-	try
-	{	BufferedReader br=new BufferedReader(new FileReader("bank-Detail.csv"));
-	//	String line=br.readLine();
-		int i=0;
+	try {	
+		//initialize reader object 
+		BufferedReader br=new BufferedReader(new FileReader("bank-Detail.csv"));
+	
+		int i = 0;
+		//read each record in csv file
 		while((line=br.readLine())!=null)
 		{
+			//parse each record in csv file by a comma
+			//into a list stored in the arraylist -> Arrays
 			array.add(Arrays.asList(line.split(",")));
 			i++;
 		}
@@ -150,57 +166,57 @@ public void readData()
 		{
 			System.out.println(e);
 		}
-		
+	
+	//call this function for processing record data 
 	processData();
 	}
 	
-	/*processData() method takes all the record data from array and add the 
-	 data into each of  instance fields via setters*/
 	 
-	public void processData()
-	{
-		int i=0;;
+	public void processData() {
+	int i = 0;
+	
 	for(List<String> dbData:array)
 	{
-	rObj[i]=new BankRecord();
-	rObj[i].setId(dbData.get(0));
-	rObj[i].setAge(Integer.parseInt(dbData.get(1)));
-	rObj[i].setSex(dbData.get(2));
-	rObj[i].setRegion(dbData.get(3));
-	rObj[i].setIncome(Double.parseDouble(dbData.get(4)));
-	rObj[i].setMarried(dbData.get(5));
-	rObj[i].setChildren(dbData.get(6));
-	rObj[i].setCar(dbData.get(7));
-	rObj[i].setSave_acct(dbData.get(8));
-	rObj[i].setCurrent_act(dbData.get(9));
-	rObj[i].setMortage(dbData.get(10));
-	rObj[i].setPep(dbData.get(11));	
+			//initialize array of object bank record as object 
+			brobj[i]=new BankRecord();
+			//call setters and get data
+			brobj[i].setId(dbData.get(0));
+			brobj[i].setAge(Integer.parseInt(dbData.get(1)));
+			brobj[i].setSex(dbData.get(2));
+			brobj[i].setRegion(dbData.get(3));
+			brobj[i].setIncome(Double.parseDouble(dbData.get(4)));
+			brobj[i].setMarried(dbData.get(5));
+			brobj[i].setChildren(dbData.get(6));
+			brobj[i].setCar(dbData.get(7));
+			brobj[i].setSave_acct(dbData.get(8));
+			brobj[i].setCurrent_act(dbData.get(9));
+			brobj[i].setMortgage(dbData.get(10));
+			brobj[i].setPep(dbData.get(11));	
 
-i++;
-	}
-//	printData();	
+			i++;
 	}
 	
-	/* printData() method should print the first 25 records to the console via getters.
-	  Print records are in the fields:ID, AGE, SEX, REGION, INCOME, and MORTGAGE.*/ 
-
+	}
+	
+	//Method to print the first 25 records for various fields via my getters 
 	void printData()
 	{
 		String timeStamp;
+		//code given to us to display the time/date when program is executed 
 		timeStamp=new SimpleDateFormat("YYYY/MM/DD HH:MM:SS").format(Calendar.getInstance().getTime());
-		System.out.println("Current Date= "+timeStamp+"\n Programmed by Mili Singh");
+		System.out.println("Current Date= "+timeStamp+"\n Programmed by student Ruchika Akhand");
 		System.out.println("\n");
-		System.out.println("\t\t\t-----Welcome to IIT Bank Report------\n");
-		System.out.println("\tID\t\tAGE\t  SEX\t     REGION\t   INCOME\tMORTAGE");
-		for(int j=0;j<25;j++)
+		System.out.println("\t\tIIT Bank’s Data Analysis Results!");
+		System.out.println("----------------------------------------------");
+		System.out.println("\tID\t\tAGE\t  SEX\t         REGION\t       INCOME\t       \t MORTGAGE");
+		for(int i = 0; i < 25; i++)
 		{
-			System.out.format("\t%5s,%10s,%10s,\t%10s,\t%10s%10s\n",rObj[j].getId(),rObj[j].getAge(),rObj[j].getSex(),rObj[j].getRegion(),rObj[j].getIncome(),rObj[j].getMortage());
+			//formatting/printing the values 
+			System.out.format("\t%5s%10s%10s\t%10s\t%10s%10s\n",brobj[i].getId(),brobj[i].getAge(),
+					brobj[i].getSex(),brobj[i].getRegion(),
+					brobj[i].getIncome(),
+					brobj[i].getMortgage());
 		}
-	}
-public static void main(String[] args)
-	{
-	BankRecord bk=new BankRecord();
-	bk.readData();
 	}
 }
 

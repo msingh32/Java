@@ -1,4 +1,12 @@
+/* Name: Ruchika Akhand
+ * November 8th, 2017
+ * LoanView.java File
+ * Lab 4
+ */
+
+
 import java.sql.ResultSet;
+
 import java.sql.ResultSetMetaData;
 import java.util.Vector;
 import javax.swing.JFrame;
@@ -9,9 +17,7 @@ import javax.swing.table.DefaultTableModel;
 
 public class LoanView extends JFrame
 {
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 	//Object of daoModels created
 			daoModels dao = new daoModels();
@@ -25,18 +31,18 @@ Vector<Vector<Object>> data = new Vector<Vector<Object>>();
 			ResultSetMetaData metaData = rs.getMetaData();
 		   	 int columns = metaData.getColumnCount();
 
-			 //generating column names from table!
+			 //generating column names from table
 	    	  	  String cols = ""; 
 	    	 
 	    	    	for (int i = 1; i <= columns ; i++) {
 	    	    	   cols = metaData.getColumnName(i);
 	    	      	   column.add(cols);
 	    	    }
-	    	    //generating row data from table!
+	    	    //generating row data from table
 	    	    while (rs.next()) {
 	    	       Vector<Object> row = new Vector<Object>(columns);
-	    	          
-	    	       for (int i = 1; i <= columns; i++) {
+	    	       int i;
+	    	       for (i = 1; i <= columns; i++) {
 	    	        row.addElement(rs.getObject(i));
 	    	       } 
 	    	       data.addElement(row);
@@ -55,7 +61,7 @@ Vector<Vector<Object>> data = new Vector<Vector<Object>>();
 	    		frame.setVisible(true);
 	            		       		
 		  } catch (Exception e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 }

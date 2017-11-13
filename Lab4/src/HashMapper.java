@@ -1,68 +1,74 @@
+
+/* Name: Ruchika Akhand
+ * November 8th, 2017
+ * HashMapper.java File
+ * Lab 4
+ */
+
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.util.ArrayList;
 import java.util.Date;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.StringTokenizer;
 
+public class HashMapper {
 
-public class HashMapper 
-{
-	
-	 //Declare HashMap
-    static Map<String, ArrayList<String>> mp=new HashMap<String, ArrayList<String>>();
-    //Declare Arraylist
-     static ArrayList<String> arrVal = new ArrayList<String>();
-	 public Map<String,ArrayList<String>>getBankRecords()
-	 {
-		 String line = "";
-	     StringTokenizer st = null;
-	     int lineNumber = 0; 
-	     int tokenNumber = 0;
-	     Date dt=new Date();
-		 String token_lhs = null,token_rhs=null;
-		 
-			        try { 
+	// Declaring hashmap here
+	static Map<String, ArrayList<String>> map = new HashMap<String, ArrayList<String>>();
 
-	               @SuppressWarnings("resource")
-	               //BufferedReader Declared to readbank-Details.csv file
-				BufferedReader br = new BufferedReader(new FileReader("bank-Detail.csv"));
-	              
-	                          //read comma separated file line by line
-	                           while ((line = br.readLine()) != null) {
-	               lineNumber++;
-	               
-	                  //use comma as token separator
-	                st = new StringTokenizer(line, ",");
-	                tokenNumber=0;
-	                arrVal= new ArrayList<String>();
-	                            while (st.hasMoreTokens()) {
-	                tokenNumber++;
+	// Declaring Arraylist here
+	static ArrayList<String> arrayValue = new ArrayList<String>();
 
-	                if(tokenNumber==1)
-	                		token_lhs=st.nextToken();
-	       
-	                            token_rhs= st.nextToken();
-	                            
-	                            arrVal.add(token_rhs);
-	                         
+	public Map<String, ArrayList<String>> getBankRecords() {
+		String line = "";
+		StringTokenizer st = null;
+		//declaring variables
+		int tokenNum = 0;
+		int lineNum = 0;
+		Date dt = new Date();
+		String token_lhs = null, token_rhs = null;
 
-	                            }
-	                            
-	                            mp.put(token_lhs,arrVal);
-	                                                          
-	                        }
-	                    	                    
+		try {
 
-	}
-			        catch (Exception e)
-			        {
-	               System.out.println("CSV file cannot be read : " + e);
-	                }
-					return mp;
-	        	
-	    }
-	
+			@SuppressWarnings("resource")
+			
+			// To be able to read bank-Details.csv file
+			BufferedReader br = new BufferedReader(new FileReader("bank-Detail.csv"));
+
+			// read each record in csv file
+			while ((line = br.readLine()) != null) {
+				lineNum++;
+
+				// comma is used as a separator 
+				st = new StringTokenizer(line, ",");
+				tokenNum = 0;
+				arrayValue = new ArrayList<String>();
+				
+				while (st.hasMoreTokens()) {
+					tokenNum++;
+
+					if (tokenNum == 1)
+						token_lhs = st.nextToken();
+
+					token_rhs = st.nextToken();
+
+					arrayValue.add(token_rhs);
+
+				}
+
+				map.put(token_lhs, arrayValue);
+
+			}
+
+		} catch (Exception e) {
+
+			System.out.println("The CSV file is not being read due to an error : " + e);
+		}
+
+		return map;
 
 	}
+
+}

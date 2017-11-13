@@ -1,4 +1,11 @@
+/* Name: Ruchika Akhand
+ * November 8th, 2017
+ * persistentObject.java File
+ * Lab 4
+ */
+
 import java.io.Serializable;
+
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -15,7 +22,7 @@ public class persistentObject implements Serializable
 	private java.util.Date date;
 	
 	public persistentObject(java.util.Date dt, Map<String, ArrayList<String>> mr) {
-		// TODO Auto-generated constructor stub
+		
 		this.setDate(dt);
 		this.setBankRecord(mr);
 	}
