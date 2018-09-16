@@ -1,8 +1,3 @@
-/* Name: Ruchika Akhand
- * November 8th, 2017
- * Connector.java File
- * Lab 4
- */
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

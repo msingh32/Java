@@ -1,10 +1,4 @@
 
-/* Name: Ruchika Akhand
- * November 8th, 2017
- * HashMapper.java File
- * Lab 4
- */
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.Date;

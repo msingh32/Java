@@ -1,8 +1,3 @@
-/* Name: Ruchika Akhand
- * November 8th, 2017
- * BankRecords.java File
- * Lab 4
- */
 
 import java.io.*;
 import java.util.*;
